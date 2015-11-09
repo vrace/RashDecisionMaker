@@ -20,7 +20,7 @@
             </objects>
             <point key="canvasLocation" x="-819" y="-318"/>
         </scene>
-        <!--我的套餐-->
+        <!--做个决定吧！-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="RashDecisionMaker" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,8 @@
                             <constraint firstAttribute="trailing" secondItem="aLb-gN-VCW" secondAttribute="trailing" id="yl3-j4-Pzl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="我的套餐" id="wO1-1B-hC3">
+                    <navigationItem key="navigationItem" title="做个决定吧！" id="wO1-1B-hC3">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qI5-cq-RJB"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ul4-X2-0Tc">
                             <connections>
                                 <action selector="editButtonTapped" destination="vXZ-lx-hvc" id="k8f-kl-L8b"/>
@@ -69,6 +70,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-126" y="-318"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="9vr-tM-b6d">
+            <objects>
+                <viewController storyboardIdentifier="ReceiptForm" id="9yS-Of-zfv" customClass="ReceiptViewController" customModule="RashDecisionMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mK5-C6-U4P"/>
+                        <viewControllerLayoutGuide type="bottom" id="9tS-XZ-QAz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2mk-DY-FLU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blablabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfY-L6-ZME">
+                                <rect key="frame" x="37" y="116" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" prompt="晃动设备来让我帮你做决定！" id="oTh-QL-FwN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LuO-fN-h8P">
+                            <connections>
+                                <action selector="addButtonTapped" destination="9yS-Of-zfv" id="XJq-9o-z6H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cjm-7Y-wG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="-318"/>
         </scene>
     </scenes>
 </document>

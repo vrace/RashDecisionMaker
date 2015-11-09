@@ -1,5 +1,7 @@
 import UIKit
 
+private let CellReuseIdentifier = "ReceiptCell"
+
 class ViewController
 : UIViewController
 , UITableViewDataSource
@@ -41,14 +43,25 @@ class ViewController
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let receipt = receiptList.receipt(indexPath.row)
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = receipt.title
-        cell.detailTextLabel?.text = receipt.desc
+        var cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier) as? UITableViewCell
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CellReuseIdentifier)
+        }
         
-        return cell
+        cell!.textLabel?.text = receipt.title
+        cell!.detailTextLabel?.text = receipt.desc
+        
+        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let receipt = receiptList.receipt(indexPath.row)
+        
+        if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
+            vc.receipt = receipt
+            showViewController(vc, sender: nil)
+        }
     }
 }
