@@ -19,6 +19,7 @@
 		116077341BF1818A00028D2E /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116077331BF1818A00028D2E /* Choice.swift */; };
 		116077391BF1CF9E00028D2E /* Serialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116077381BF1CF9E00028D2E /* Serialiser.swift */; };
 		1160773B1BF1D35200028D2E /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160773A1BF1D35200028D2E /* Document.swift */; };
+		1160773D1BF1E9E900028D2E /* NewReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160773C1BF1E9E900028D2E /* NewReceiptViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		116077331BF1818A00028D2E /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		116077381BF1CF9E00028D2E /* Serialiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialiser.swift; sourceTree = "<group>"; };
 		1160773A1BF1D35200028D2E /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		1160773C1BF1E9E900028D2E /* NewReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReceiptViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				1160770A1BF09D9900028D2E /* AppDelegate.swift */,
 				1160770C1BF09D9900028D2E /* ViewController.swift */,
 				116077311BF0FE8900028D2E /* ReceiptViewController.swift */,
+				1160773C1BF1E9E900028D2E /* NewReceiptViewController.swift */,
 				1160770E1BF09D9900028D2E /* Main.storyboard */,
 				116077111BF09D9900028D2E /* Images.xcassets */,
 				116077131BF09D9900028D2E /* LaunchScreen.xib */,
@@ -254,6 +257,7 @@
 				1160770D1BF09D9900028D2E /* ViewController.swift in Sources */,
 				116077391BF1CF9E00028D2E /* Serialiser.swift in Sources */,
 				1160770B1BF09D9900028D2E /* AppDelegate.swift in Sources */,
+				1160773D1BF1E9E900028D2E /* NewReceiptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

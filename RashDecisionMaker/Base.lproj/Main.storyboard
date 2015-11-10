@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CM7-d8-6zm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -71,6 +72,56 @@
             </objects>
             <point key="canvasLocation" x="-126" y="-318"/>
         </scene>
+        <!--新的决定-->
+        <scene sceneID="7jq-dl-LfO">
+            <objects>
+                <viewController storyboardIdentifier="NewReceipt" id="YxB-NA-KCx" customClass="NewReceiptViewController" customModule="RashDecisionMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="onp-56-7gc"/>
+                        <viewControllerLayoutGuide type="bottom" id="wtk-mf-h7d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F9g-mV-2ej">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先来给个名字……" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-Uw-Udp">
+                                <rect key="frame" x="16" y="80" width="136.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwb-mf-xsM">
+                                <rect key="frame" x="16" y="108" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EOb-Uw-Udp" firstAttribute="top" secondItem="onp-56-7gc" secondAttribute="bottom" constant="16" id="8mT-4b-594"/>
+                            <constraint firstItem="EOb-Uw-Udp" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="G0K-Ar-htJ"/>
+                            <constraint firstItem="vwb-mf-xsM" firstAttribute="trailing" secondItem="F9g-mV-2ej" secondAttribute="trailingMargin" id="Vg4-sO-68t"/>
+                            <constraint firstItem="vwb-mf-xsM" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="Wgd-7e-skX"/>
+                            <constraint firstItem="vwb-mf-xsM" firstAttribute="top" secondItem="EOb-Uw-Udp" secondAttribute="bottom" constant="8" id="ZVu-oD-AOi"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="新的决定" id="89m-qp-ctH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yZP-a9-ze5">
+                            <connections>
+                                <segue destination="gvU-3P-Zns" kind="unwind" unwindAction="unwindToMain:" id="BTc-2T-DTn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wzz-hg-3qI"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2j-Th-RHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gvU-3P-Zns" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="394"/>
+        </scene>
         <!--Title-->
         <scene sceneID="9vr-tM-b6d">
             <objects>
@@ -107,6 +158,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cjm-7Y-wG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

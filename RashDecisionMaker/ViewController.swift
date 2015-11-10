@@ -18,6 +18,13 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     @IBAction func addButtonTapped() {
+        if let vc = storyboard?.instantiateViewControllerWithIdentifier("NewReceipt") as? NewReceiptViewController {
+            let nav = UINavigationController(rootViewController: vc)
+            presentViewController(nav, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func unwindToMain(segue: UIStoryboardSegue) {
         
     }
     
@@ -42,7 +49,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         
         if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
             vc.receipt = receipt
-            showViewController(vc, sender: nil)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
