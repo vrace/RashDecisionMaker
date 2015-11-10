@@ -16,6 +16,7 @@
 		1160772E1BF0CAD600028D2E /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160772D1BF0CAD600028D2E /* Receipt.swift */; };
 		116077301BF0CAEE00028D2E /* ReceiptList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160772F1BF0CAEE00028D2E /* ReceiptList.swift */; };
 		116077321BF0FE8900028D2E /* ReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116077311BF0FE8900028D2E /* ReceiptViewController.swift */; };
+		116077341BF1818A00028D2E /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116077331BF1818A00028D2E /* Choice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		1160772D1BF0CAD600028D2E /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		1160772F1BF0CAEE00028D2E /* ReceiptList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptList.swift; sourceTree = "<group>"; };
 		116077311BF0FE8900028D2E /* ReceiptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewController.swift; sourceTree = "<group>"; };
+		116077331BF1818A00028D2E /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				1160772D1BF0CAD600028D2E /* Receipt.swift */,
 				1160772F1BF0CAEE00028D2E /* ReceiptList.swift */,
+				116077331BF1818A00028D2E /* Choice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116077341BF1818A00028D2E /* Choice.swift in Sources */,
 				116077301BF0CAEE00028D2E /* ReceiptList.swift in Sources */,
 				1160772E1BF0CAD600028D2E /* Receipt.swift in Sources */,
 				116077321BF0FE8900028D2E /* ReceiptViewController.swift in Sources */,

@@ -43,15 +43,13 @@ class ViewController
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let receipt = receiptList.receipt(indexPath.row)
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier) as? UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CellReuseIdentifier)
-        }
+        let cell = (tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier) as? UITableViewCell) ??
+        UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CellReuseIdentifier)
         
-        cell!.textLabel?.text = receipt.title
-        cell!.detailTextLabel?.text = receipt.desc
+        cell.textLabel?.text = receipt.title
+        cell.detailTextLabel?.text = receipt.desc
         
-        return cell!
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

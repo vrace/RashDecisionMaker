@@ -83,14 +83,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blablabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfY-L6-ZME">
-                                <rect key="frame" x="37" y="116" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ShD-oX-mSR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9yS-Of-zfv" id="3y9-nT-V73"/>
+                                    <outlet property="delegate" destination="9yS-Of-zfv" id="E5T-sm-z2Y"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ShD-oX-mSR" firstAttribute="top" secondItem="2mk-DY-FLU" secondAttribute="top" id="IXc-tO-Ofv"/>
+                            <constraint firstItem="ShD-oX-mSR" firstAttribute="leading" secondItem="2mk-DY-FLU" secondAttribute="leading" id="Iqp-Wg-RRQ"/>
+                            <constraint firstAttribute="trailing" secondItem="ShD-oX-mSR" secondAttribute="trailing" id="pK6-AS-2P6"/>
+                            <constraint firstItem="9tS-XZ-QAz" firstAttribute="top" secondItem="ShD-oX-mSR" secondAttribute="bottom" id="whj-1p-JjX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" prompt="晃动设备来让我帮你做决定！" id="oTh-QL-FwN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LuO-fN-h8P">
