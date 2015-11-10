@@ -10,6 +10,8 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         navigationItem.title = receipt.title
+        
+        becomeFirstResponder()
     }
     
     @IBAction func addButtonTapped() {
@@ -32,5 +34,15 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if motion == UIEventSubtype.MotionShake {
+            println("shake shake shake")
+        }
     }
 }
