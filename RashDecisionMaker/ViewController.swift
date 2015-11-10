@@ -2,38 +2,23 @@ import UIKit
 
 private let CellReuseIdentifier = "ReceiptCell"
 
-class ViewController
-: UIViewController
-, UITableViewDataSource
-, UITableViewDelegate
-, ReceiptListDelegate
-{
+class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private weak var optionsList: UITableView!
-    
     private var receiptList: ReceiptList!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        receiptList = ReceiptList(delegate: self)
+        receiptList = ReceiptList()
         receiptList.load()
     }
     
     @IBAction func editButtonTapped() {
-        // just for fun
-        receiptList.load()
+        
     }
     
     @IBAction func addButtonTapped() {
-        // just for fun
         
-        let str = "blabla:aaa\ntitle:123\nhmm:abc"
-        let c = Choice.deserialise(str)
-        println(c)
-    }
-    
-    func receiptListUpdated(_: ReceiptList) {
-        optionsList.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

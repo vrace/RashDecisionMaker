@@ -1,24 +1,31 @@
 import Foundation
 
-protocol ReceiptListDelegate: class {
-    func receiptListUpdated(ReceiptList)
-}
+private let ReceiptListTxt = "ReceiptList.txt"
+private let TagCount = "count"
 
 class ReceiptList {
     private var receipts = [Receipt]()
-    private weak var delegate: ReceiptListDelegate?
-    
-    init(delegate: ReceiptListDelegate?) {
-        self.delegate = delegate
-    }
     
     func load() {
-        receipts.removeAll(keepCapacity: false)
-        receipts.append(Receipt.deserialise("1.txt")!)
-        delegate?.receiptListUpdated(self)
+        receipts = []
+        
+        if let str = loadDocument(ReceiptListTxt) {
+            let dict = stringToDictionary(str)
+            if let count = dict[TagCount]?.toInt() {
+                for var i = 0; i < count; i++ {
+                    if let r = Receipt.deserialise("\(i + 1).txt") {
+                        receipts.append(r)
+                    }
+                }
+            }
+        }
     }
     
     func save() {
+        saveDocument(ReceiptListTxt, "count:\(receipts.count)")
+        for var i = 0; i < receipts.count; i++ {
+            receipts[i].serialise("\(i + 1).txt")
+        }
     }
     
     var numberOfReceipts: Int {
@@ -31,6 +38,5 @@ class ReceiptList {
     
     func append(receipt: Receipt) {
         receipts.append(receipt)
-        delegate?.receiptListUpdated(self)
     }
 }

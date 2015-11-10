@@ -14,7 +14,7 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func addButtonTapped() {
-        // for fun
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
