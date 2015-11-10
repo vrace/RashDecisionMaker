@@ -88,11 +88,11 @@
 				1160772A1BF0CA8C00028D2E /* Model */,
 				1160770A1BF09D9900028D2E /* AppDelegate.swift */,
 				1160770C1BF09D9900028D2E /* ViewController.swift */,
+				116077311BF0FE8900028D2E /* ReceiptViewController.swift */,
 				1160770E1BF09D9900028D2E /* Main.storyboard */,
 				116077111BF09D9900028D2E /* Images.xcassets */,
 				116077131BF09D9900028D2E /* LaunchScreen.xib */,
 				116077081BF09D9900028D2E /* Supporting Files */,
-				116077311BF0FE8900028D2E /* ReceiptViewController.swift */,
 			);
 			path = RashDecisionMaker;
 			sourceTree = "<group>";
