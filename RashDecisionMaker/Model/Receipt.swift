@@ -44,4 +44,8 @@ class Receipt {
         // TODO: envolve this to achieve more reasonable result
         return choice(Int(arc4random() % UInt32(numberOfChoices)))
     }
+    
+    static func deserialise(filename: String) -> Receipt? {
+        return nil
+    }
 }

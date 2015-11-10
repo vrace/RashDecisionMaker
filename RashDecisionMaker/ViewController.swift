@@ -26,6 +26,10 @@ class ViewController
     
     @IBAction func addButtonTapped() {
         // just for fun
+        
+        let str = "blabla:aaa\ntitle:123\nhmm:abc"
+        let c = Choice.deserialise(str)
+        println(c)
     }
     
     func receiptListUpdated(_: ReceiptList) {
