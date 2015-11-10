@@ -1,17 +1,35 @@
 import Foundation
 
 class Receipt {
-    var title: String!
-    var choices = [Choice]()
+    private(set) var title: String!
+    private var choices = [Choice]()
     
-    init() {
-        title = "Test"
+    init(title: String) {
+        self.title = title
         
-        choices.append(Choice())
+        choices.append(Choice(title: "老面馆"))
+        choices.append(Choice(title: "兰州拉面"))
+        choices.append(Choice(title: "兵哥豌杂"))
+        choices.append(Choice(title: "重庆余桥面"))
+        choices.append(Choice(title: "资格面"))
+        choices.append(Choice(title: "宜宾燃面"))
+        choices.append(Choice(title: "火锅冒菜"))
+        choices.append(Choice(title: "三顾冒菜"))
+        choices.append(Choice(title: "避风塘"))
+        choices.append(Choice(title: "炒菜"))
+        choices.append(Choice(title: "肥肠粉"))
     }
     
     var desc: String {
-        return "The quick brown fox jumps over the lazy dog."
+        var str = ""
+        if !choices.isEmpty {
+            str = choices[0].title
+            
+            for var i = 1; i < choices.count; i++ {
+                str += ", \(choices[i].title)"
+            }
+        }
+        return str
     }
     
     var numberOfChoices: Int {

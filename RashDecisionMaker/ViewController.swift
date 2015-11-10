@@ -26,10 +26,6 @@ class ViewController
     
     @IBAction func addButtonTapped() {
         // just for fun
-        
-        var r = Receipt()
-        r.title = "Haha"
-        receiptList.append(r)
     }
     
     func receiptListUpdated(_: ReceiptList) {

@@ -1,9 +1,9 @@
 import Foundation
 
 class Choice {
-    var title: String!
+    private(set) var title: String!
     
-    init() {
-        title = "Test"
+    init(title: String) {
+        self.title = title
     }
 }

@@ -13,16 +13,8 @@ class ReceiptList {
     }
     
     func load() {
-        
-        // just for fun for now
-        let c = Int(3 + arc4random() % 8)
-        
         receipts.removeAll(keepCapacity: false)
-        
-        for var i = 0; i < c; i++ {
-            receipts.append(Receipt())
-        }
-        
+        receipts.append(Receipt(title: "中午吃什么"))
         delegate?.receiptListUpdated(self)
     }
     
