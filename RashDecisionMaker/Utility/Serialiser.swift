@@ -3,7 +3,7 @@ import Foundation
 func dictionaryToString(dict: [String: String]) -> String {
     var str = ""
     for key in dict.keys {
-        str += "\(key):\(dict[key])\n"
+        str += "\(key):\(dict[key]!)\n"
     }
     return str
 }

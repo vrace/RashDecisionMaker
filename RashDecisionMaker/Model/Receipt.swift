@@ -4,20 +4,9 @@ class Receipt {
     private(set) var title: String!
     private var choices = [Choice]()
     
-    init(title: String) {
+    init(title: String, choices: [Choice]) {
         self.title = title
-        
-        choices.append(Choice(title: "老面馆"))
-        choices.append(Choice(title: "兰州拉面"))
-        choices.append(Choice(title: "兵哥豌杂"))
-        choices.append(Choice(title: "重庆余桥面"))
-        choices.append(Choice(title: "资格面"))
-        choices.append(Choice(title: "宜宾燃面"))
-        choices.append(Choice(title: "火锅冒菜"))
-        choices.append(Choice(title: "三顾冒菜"))
-        choices.append(Choice(title: "避风塘"))
-        choices.append(Choice(title: "炒菜"))
-        choices.append(Choice(title: "肥肠粉"))
+        self.choices = choices
     }
     
     var desc: String {
@@ -45,7 +34,30 @@ class Receipt {
         return choice(Int(arc4random() % UInt32(numberOfChoices)))
     }
     
+    func serialise(filename: String) {
+        var str = "title:\(title)\n%%\n"
+        for c in choices {
+            str += "\(c.serialise())\n%%\n"
+        }
+        
+        saveDocument(filename, str)
+    }
+    
     static func deserialise(filename: String) -> Receipt? {
-        return nil
+        var receipt: Receipt?
+        
+        if let str = loadDocument(filename) {
+            var comps = str.componentsSeparatedByString("\n%%\n")
+            if !comps.isEmpty {
+                let dict = stringToDictionary(comps[0])
+                if let title = dict["title"] {
+                    comps.removeAtIndex(0)
+                    let choices = comps.map(Choice.deserialise).filter({ $0 != nil }).map({ $0! })
+                    receipt = Receipt(title: title, choices: choices)
+                }
+            }
+        }
+        
+        return receipt
     }
 }

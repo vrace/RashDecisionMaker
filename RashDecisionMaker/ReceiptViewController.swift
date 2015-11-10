@@ -10,12 +10,11 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         navigationItem.title = receipt.title
-        
         becomeFirstResponder()
     }
     
     @IBAction func addButtonTapped() {
-        
+        // for fun
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,10 +22,9 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let choice = receipt.choice(indexPath.row)
-        
         let cell = (tableView.dequeueReusableCellWithIdentifier(CellReuseID) as? UITableViewCell) ?? UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: CellReuseID)
         
+        let choice = receipt.choice(indexPath.row)
         cell.textLabel?.text = choice.title
         
         return cell

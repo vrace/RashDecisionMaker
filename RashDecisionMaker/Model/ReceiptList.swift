@@ -14,7 +14,7 @@ class ReceiptList {
     
     func load() {
         receipts.removeAll(keepCapacity: false)
-        receipts.append(Receipt(title: "中午吃什么"))
+        receipts.append(Receipt.deserialise("1.txt")!)
         delegate?.receiptListUpdated(self)
     }
     
