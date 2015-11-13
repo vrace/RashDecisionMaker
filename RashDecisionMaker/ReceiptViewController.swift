@@ -3,8 +3,14 @@ import UIKit
 
 private let CellReuseID = "ReceiptChoiceCell"
 
-class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol ReceiptViewDelegate: class {
+    func receiptChanged(Receipt)
+}
+
+class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewChoiceDelegate {
     var receipt: Receipt!
+    weak var delegate: ReceiptViewDelegate?
+    @IBOutlet weak var choiceList: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +20,21 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func addButtonTapped() {
+        if let vc = storyboard?.instantiateViewControllerWithIdentifier("NewChoice") as? NewChoiceViewController {
+            vc.delegate = self
+            presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func unwindToReceiptView(segue: UIStoryboardSegue) {
         
+    }
+    
+    func choiceCreated(choice: Choice) {
+        receipt.appendChoice(choice)
+        choiceList.reloadData()
+        
+        delegate?.receiptChanged(receipt)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

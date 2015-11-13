@@ -2,7 +2,7 @@ import UIKit
 
 private let CellReuseIdentifier = "ReceiptCell"
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptDelegate, ReceiptViewDelegate {
     @IBOutlet private weak var optionsList: UITableView!
     private var receiptList: ReceiptList!
     
@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private func launchReceiptForm(receipt: Receipt) {
         if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
             vc.receipt = receipt
+            vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -40,6 +41,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         receiptList.append(receipt)
         receiptList.save()
         launchReceiptForm(receipt)
+        optionsList.reloadData()
+    }
+    
+    func receiptChanged(_: Receipt) {
+        receiptList.save()
         optionsList.reloadData()
     }
     

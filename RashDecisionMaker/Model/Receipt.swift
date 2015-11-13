@@ -25,6 +25,10 @@ class Receipt {
         return count(choices)
     }
     
+    func appendChoice(choice: Choice) {
+        choices.append(choice)
+    }
+    
     func choice(atIndex: Int) -> Choice {
         return choices[atIndex]
     }

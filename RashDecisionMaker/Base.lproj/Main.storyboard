@@ -87,7 +87,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先来给个名字……" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-Uw-Udp">
                                 <rect key="frame" x="16" y="80" width="136.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwb-mf-xsM">
@@ -129,6 +129,64 @@
             </objects>
             <point key="canvasLocation" x="-126" y="394"/>
         </scene>
+        <!--新的选择-->
+        <scene sceneID="aty-nU-86X">
+            <objects>
+                <viewController storyboardIdentifier="NewChoice" id="QLr-QT-KKR" customClass="NewChoiceViewController" customModule="RashDecisionMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Zm-YG-av5"/>
+                        <viewControllerLayoutGuide type="bottom" id="a86-B1-aJA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xK3-cn-7Ix">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这个选择是什么呢？" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIB-Pv-dKa">
+                                <rect key="frame" x="16" y="72" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdC-C0-zBg">
+                                <rect key="frame" x="16" y="101" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="B7e-BU-6iQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JdC-C0-zBg" firstAttribute="leading" secondItem="xK3-cn-7Ix" secondAttribute="leadingMargin" id="DWY-bz-QWd"/>
+                            <constraint firstItem="JdC-C0-zBg" firstAttribute="top" secondItem="dIB-Pv-dKa" secondAttribute="bottom" constant="8" id="gPf-3N-9kb"/>
+                            <constraint firstItem="JdC-C0-zBg" firstAttribute="trailing" secondItem="xK3-cn-7Ix" secondAttribute="trailingMargin" id="nV3-TP-MeR"/>
+                            <constraint firstItem="dIB-Pv-dKa" firstAttribute="leading" secondItem="xK3-cn-7Ix" secondAttribute="leadingMargin" id="qVz-Ms-3F6"/>
+                            <constraint firstItem="dIB-Pv-dKa" firstAttribute="top" secondItem="5Zm-YG-av5" secondAttribute="bottom" constant="8" id="sc1-Tq-fCg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="新的选择" id="Wkf-WQ-eu2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ViR-VY-naM">
+                            <connections>
+                                <segue destination="otf-jG-e3N" kind="unwind" unwindAction="unwindToReceiptView:" id="5mM-tA-XDz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fp5-IA-OYY">
+                            <connections>
+                                <action selector="doneTapped" destination="QLr-QT-KKR" id="oW6-ce-4o0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="choiceName" destination="JdC-C0-zBg" id="4yt-vm-QqB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9d-S3-RfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="otf-jG-e3N" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="394"/>
+        </scene>
         <!--Title-->
         <scene sceneID="9vr-tM-b6d">
             <objects>
@@ -167,6 +225,9 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="choiceList" destination="ShD-oX-mSR" id="Mrq-Bm-tqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cjm-7Y-wG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

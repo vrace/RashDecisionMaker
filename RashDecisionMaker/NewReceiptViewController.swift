@@ -7,7 +7,7 @@ protocol NewReceiptDelegate: class {
 
 class NewReceiptViewController: UIViewController {
     @IBOutlet weak var receiptName: UITextField!
-    var delegate: NewReceiptDelegate?
+    weak var delegate: NewReceiptDelegate?
     
     @IBAction func doneTapped() {
         if !receiptName.text.isEmpty {
