@@ -13,10 +13,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         receiptList.load()
     }
     
-    @IBAction func editButtonTapped() {
-        
-    }
-    
     @IBAction func addButtonTapped() {
         if let vc = storyboard?.instantiateViewControllerWithIdentifier("NewReceipt") as? NewReceiptViewController {
             vc.delegate = self

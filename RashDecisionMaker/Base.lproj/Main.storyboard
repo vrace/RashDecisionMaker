@@ -53,11 +53,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="做个决定吧！" id="wO1-1B-hC3">
                         <barButtonItem key="backBarButtonItem" title=" " id="qI5-cq-RJB"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ul4-X2-0Tc">
-                            <connections>
-                                <action selector="editButtonTapped" destination="vXZ-lx-hvc" id="k8f-kl-L8b"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fFE-vE-spW">
                             <connections>
                                 <action selector="addButtonTapped" destination="vXZ-lx-hvc" id="9uz-zI-KrY"/>
@@ -94,6 +89,9 @@
                                 <rect key="frame" x="16" y="108" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="YxB-NA-KCx" id="JDI-6c-FMl"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,7 +150,10 @@
                                     <constraint firstAttribute="height" constant="30" id="B7e-BU-6iQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QLr-QT-KKR" id="Oqs-ML-Kxl"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -5,7 +5,7 @@ protocol NewChoiceDelegate: class {
     func choiceCreated(Choice)
 }
 
-class NewChoiceViewController: UIViewController {
+class NewChoiceViewController: UIViewController, UITextFieldDelegate {
     weak var delegate: NewChoiceDelegate?
     @IBOutlet weak var choiceName: UITextField!
     
@@ -22,5 +22,10 @@ class NewChoiceViewController: UIViewController {
                     delegate?.choiceCreated(choice)
             })
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

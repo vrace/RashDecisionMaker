@@ -5,7 +5,7 @@ protocol NewReceiptDelegate: class {
     func beginCreateReceipt(receiptName: String)
 }
 
-class NewReceiptViewController: UIViewController {
+class NewReceiptViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var receiptName: UITextField!
     weak var delegate: NewReceiptDelegate?
     
@@ -26,5 +26,10 @@ class NewReceiptViewController: UIViewController {
     @IBAction func cancelTapped() {
         receiptName.resignFirstResponder()
         navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
