@@ -9,6 +9,11 @@ class NewReceiptViewController: UIViewController {
     @IBOutlet weak var receiptName: UITextField!
     weak var delegate: NewReceiptDelegate?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        receiptName.becomeFirstResponder()
+    }
+    
     @IBAction func doneTapped() {
         if !receiptName.text.isEmpty {
             navigationController?.dismissViewControllerAnimated(true,

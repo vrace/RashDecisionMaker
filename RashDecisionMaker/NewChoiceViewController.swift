@@ -9,6 +9,11 @@ class NewChoiceViewController: UIViewController {
     weak var delegate: NewChoiceDelegate?
     @IBOutlet weak var choiceName: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        choiceName.becomeFirstResponder()
+    }
+    
     @IBAction func doneTapped() {
         if !choiceName.text.isEmpty {
             let choice = Choice(title: choiceName.text)
