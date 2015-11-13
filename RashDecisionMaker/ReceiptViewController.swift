@@ -54,6 +54,20 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
         return false
     }
     
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        receipt.removeChoiceAt(indexPath.row)
+        delegate?.receiptChanged(receipt)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+    
     override func canBecomeFirstResponder() -> Bool {
         return true
     }

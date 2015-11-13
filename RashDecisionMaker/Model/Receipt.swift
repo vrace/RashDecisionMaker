@@ -29,6 +29,16 @@ class Receipt {
         choices.append(choice)
     }
     
+    func removeChoice(choice: Choice) {
+        choices = choices.filter {
+            $0.title != choice.title
+        }
+    }
+    
+    func removeChoiceAt(index: Int) {
+        choices.removeAtIndex(index)
+    }
+    
     func choice(atIndex: Int) -> Choice {
         return choices[atIndex]
     }
