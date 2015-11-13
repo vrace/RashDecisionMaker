@@ -2,7 +2,7 @@ import UIKit
 
 private let CellReuseIdentifier = "ReceiptCell"
 
-class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewReceiptDelegate {
     @IBOutlet private weak var optionsList: UITableView!
     private var receiptList: ReceiptList!
     
@@ -19,13 +19,28 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBAction func addButtonTapped() {
         if let vc = storyboard?.instantiateViewControllerWithIdentifier("NewReceipt") as? NewReceiptViewController {
-            let nav = UINavigationController(rootViewController: vc)
-            presentViewController(nav, animated: true, completion: nil)
+            vc.delegate = self
+            presentViewController(UINavigationController(rootViewController: vc), animated: true, completion: nil)
         }
     }
     
     @IBAction func unwindToMain(segue: UIStoryboardSegue) {
         
+    }
+    
+    private func launchReceiptForm(receipt: Receipt) {
+        if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
+            vc.receipt = receipt
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func beginCreateReceipt(receiptName: String) {
+        var receipt = Receipt(title: receiptName, choices: [])
+        receiptList.append(receipt)
+        receiptList.save()
+        launchReceiptForm(receipt)
+        optionsList.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,12 +59,6 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let receipt = receiptList.receipt(indexPath.row)
-        
-        if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
-            vc.receipt = receipt
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        launchReceiptForm(receiptList.receipt(indexPath.row))
     }
 }
