@@ -33,9 +33,9 @@ class Receipt {
         return choices[atIndex]
     }
     
-    func random() -> Choice {
+    func random() -> Choice? {
         // TODO: envolve this to achieve more reasonable result
-        return choice(Int(arc4random() % UInt32(numberOfChoices)))
+        return choices.isEmpty ? nil : choice(Int(arc4random() % UInt32(numberOfChoices)))
     }
     
     func serialise(filename: String) {

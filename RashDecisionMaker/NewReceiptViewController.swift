@@ -22,4 +22,9 @@ class NewReceiptViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func cancelTapped() {
+        receiptName.resignFirstResponder()
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

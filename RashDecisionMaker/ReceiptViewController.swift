@@ -60,8 +60,12 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if motion == UIEventSubtype.MotionShake {
-            let choice = receipt.random()
-            UIAlertView(title: choice.title, message: nil, delegate: nil, cancelButtonTitle: "OK").show()
+            if let choice = receipt.random() {
+                UIAlertView(title: choice.title, message: nil, delegate: nil, cancelButtonTitle: "OK").show()
+            }
+            else {
+                UIAlertView(title: "臣妾做不到啊！没得选！", message: nil, delegate: nil, cancelButtonTitle: "OK").show()
+            }
         }
     }
 }
