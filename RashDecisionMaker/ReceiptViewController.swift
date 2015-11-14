@@ -7,7 +7,7 @@ protocol ReceiptViewDelegate: class {
     func receiptChanged(Receipt)
 }
 
-class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewChoiceDelegate {
+class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewChoiceDelegate, UIAlertViewDelegate {
     var receipt: Receipt!
     weak var delegate: ReceiptViewDelegate?
     @IBOutlet weak var choiceList: UITableView!
@@ -75,11 +75,15 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if motion == UIEventSubtype.MotionShake {
             if let choice = receipt.random() {
-                UIAlertView(title: choice.title, message: nil, delegate: nil, cancelButtonTitle: "OK").show()
+                UIAlertView(title: choice.title, message: nil, delegate: self, cancelButtonTitle: "OK").show()
             }
             else {
-                UIAlertView(title: "臣妾做不到啊！没得选！", message: nil, delegate: nil, cancelButtonTitle: "OK").show()
+                UIAlertView(title: "臣妾做不到啊！没得选！", message: nil, delegate: self, cancelButtonTitle: "OK").show()
             }
         }
+    }
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        navigationController?.popViewControllerAnimated(true)
     }
 }
