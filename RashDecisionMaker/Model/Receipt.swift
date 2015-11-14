@@ -1,12 +1,14 @@
 import Foundation
 
 class Receipt {
-    private(set) var title: String!
+    private(set) var title: String
     private var choices = [Choice]()
+    private(set) var once: Bool
     
-    init(title: String, choices: [Choice]) {
+    init(title: String, choices: [Choice] = [], once: Bool = false) {
         self.title = title
         self.choices = choices
+        self.once = once
     }
     
     var desc: String {
@@ -49,7 +51,11 @@ class Receipt {
     }
     
     func serialise(filename: String) {
-        var str = "title:\(title)\n%%\n"
+        let dic = [
+            "title": title,
+            "once": once ? "yes" : "no"
+        ]
+        var str = "\(dictionaryToString(dic))\n%%\n"
         for c in choices {
             str += "\(c.serialise())\n%%\n"
         }
@@ -65,9 +71,11 @@ class Receipt {
             if !comps.isEmpty {
                 let dict = stringToDictionary(comps[0])
                 if let title = dict["title"] {
+                    let once = (dict["once"] ?? "no") == "yes" ? true : false
+                    
                     comps.removeAtIndex(0)
                     let choices = comps.map(Choice.deserialise).filter({ $0 != nil }).map({ $0! })
-                    receipt = Receipt(title: title, choices: choices)
+                    receipt = Receipt(title: title, choices: choices, once: once)
                 }
             }
         }

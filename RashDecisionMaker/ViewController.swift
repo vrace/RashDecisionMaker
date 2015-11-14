@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func beginCreateReceipt(receiptName: String) {
-        var receipt = Receipt(title: receiptName, choices: [])
+        var receipt = Receipt(title: receiptName)
         receiptList.append(receipt)
         receiptList.save()
         launchReceiptForm(receipt)
@@ -45,6 +45,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         optionsList.reloadData()
     }
     
+    private func makeReceiptTitleText(receipt: Receipt) -> NSAttributedString {
+        var str = NSMutableAttributedString()
+        if receipt.once {
+            str = NSMutableAttributedString(string: "[摇后即焚] ",
+                attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+        }
+        str.appendAttributedString(NSAttributedString(string: receipt.title))
+        return str
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return receiptList.numberOfReceipts
     }
@@ -53,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = (tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier) as? UITableViewCell) ?? UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CellReuseIdentifier)
         
         let receipt = receiptList.receipt(indexPath.row)
-        cell.textLabel?.text = receipt.title
+        cell.textLabel?.attributedText = makeReceiptTitleText(receipt)
         cell.detailTextLabel?.text = receipt.desc
         
         return cell
