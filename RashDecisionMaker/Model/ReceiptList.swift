@@ -39,4 +39,8 @@ class ReceiptList {
     func append(receipt: Receipt) {
         receipts.append(receipt)
     }
+    
+    func remove(atIndex: Int) {
+        receipts.removeAtIndex(atIndex)
+    }
 }

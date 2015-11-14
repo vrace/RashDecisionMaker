@@ -63,4 +63,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         launchReceiptForm(receiptList.receipt(indexPath.row))
     }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        receiptList.remove(indexPath.row)
+        receiptList.save()
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
 }
