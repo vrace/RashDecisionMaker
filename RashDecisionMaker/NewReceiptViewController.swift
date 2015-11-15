@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 protocol NewReceiptDelegate: class {
-    func beginCreateReceipt(receiptName: String)
+    func beginCreateReceipt(receiptType: ReceiptType, receiptName: String)
 }
 
 class NewReceiptViewController: UIViewController, UITextFieldDelegate {
@@ -18,7 +18,7 @@ class NewReceiptViewController: UIViewController, UITextFieldDelegate {
         if !receiptName.text.isEmpty {
             navigationController?.dismissViewControllerAnimated(true,
                 completion: {
-                    delegate?.beginCreateReceipt(receiptName.text)
+                    delegate?.beginCreateReceipt(.Default, receiptName: receiptName.text)
             })
         }
     }

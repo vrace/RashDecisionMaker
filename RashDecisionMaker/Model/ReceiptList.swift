@@ -13,7 +13,7 @@ class ReceiptList {
             let dict = stringToDictionary(str)
             if let count = dict[TagCount]?.toInt() {
                 for var i = 0; i < count; i++ {
-                    if let r = Receipt.deserialise("\(i + 1).txt") {
+                    if let r = receiptFromFile("\(i + 1).txt") {
                         receipts.append(r)
                     }
                 }
@@ -24,7 +24,7 @@ class ReceiptList {
     func save() {
         saveDocument(ReceiptListTxt, "count:\(receipts.count)")
         for var i = 0; i < receipts.count; i++ {
-            receipts[i].serialise("\(i + 1).txt")
+            saveDocument("\(i + 1).txt", receipts[i].serialise())
         }
     }
     

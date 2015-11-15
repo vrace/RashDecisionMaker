@@ -8,7 +8,7 @@ protocol ReceiptViewDelegate: class {
 }
 
 class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewChoiceDelegate, UIAlertViewDelegate {
-    var receipt: Receipt!
+    var receipt: DefaultReceipt!
     weak var delegate: ReceiptViewDelegate?
     @IBOutlet weak var choiceList: UITableView!
     
@@ -63,7 +63,7 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        receipt.removeChoiceAt(indexPath.row)
+        receipt.removeChoice(indexPath.row)
         delegate?.receiptChanged(receipt)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
@@ -84,6 +84,10 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        alertViewDismissed()
+    }
+    
+    func alertViewDismissed() {
         navigationController?.popViewControllerAnimated(true)
     }
 }

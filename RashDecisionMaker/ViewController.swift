@@ -25,15 +25,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func launchReceiptForm(receipt: Receipt) {
-        if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
-            vc.receipt = receipt
-            vc.delegate = self
-            navigationController?.pushViewController(vc, animated: true)
+        switch receipt.type {
+        case .Default:
+            if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
+                vc.receipt = receipt as! DefaultReceipt
+                vc.delegate = self
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        case .Once:
+            if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
+                vc.receipt = receipt as! DefaultReceipt
+                vc.delegate = self
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
-    func beginCreateReceipt(receiptName: String) {
-        var receipt = Receipt(title: receiptName)
+    func beginCreateReceipt(receiptType: ReceiptType, receiptName: String) {
+        var receipt: Receipt!
+        
+        switch receiptType {
+        case .Default:
+            receipt = DefaultReceipt(title: receiptName)
+        case .Once:
+            receipt = DefaultReceipt(title: receiptName)
+        }
+        
         receiptList.append(receipt)
         receiptList.save()
         launchReceiptForm(receipt)
@@ -45,6 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         optionsList.reloadData()
     }
     
+    /*
     private func makeReceiptTitleText(receipt: Receipt) -> NSAttributedString {
         var str = NSMutableAttributedString()
         if receipt.once {
@@ -54,6 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         str.appendAttributedString(NSAttributedString(string: receipt.title))
         return str
     }
+    */
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return receiptList.numberOfReceipts
@@ -63,8 +82,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = (tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier) as? UITableViewCell) ?? UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CellReuseIdentifier)
         
         let receipt = receiptList.receipt(indexPath.row)
-        cell.textLabel?.attributedText = makeReceiptTitleText(receipt)
-        cell.detailTextLabel?.text = receipt.desc
+        cell.textLabel?.attributedText = receipt.displayText
+        cell.detailTextLabel?.text = receipt.displayDesc
         
         return cell
     }
