@@ -6,6 +6,12 @@ private let TagCount = "count"
 class ReceiptList {
     private var receipts = [Receipt]()
     
+    private init() {
+        
+    }
+    
+    static var instance = ReceiptList()
+    
     func load() {
         receipts = []
         

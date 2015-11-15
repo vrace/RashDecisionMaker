@@ -9,7 +9,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        receiptList = ReceiptList()
+        receiptList = ReceiptList.instance
         receiptList.load()
     }
     
