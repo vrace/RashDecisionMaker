@@ -88,6 +88,10 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func alertViewDismissed() {
+        if receipt.type == .Once {
+            ReceiptList.instance.remove(receipt)
+            delegate?.receiptChanged(receipt)
+        }
         navigationController?.popViewControllerAnimated(true)
     }
 }

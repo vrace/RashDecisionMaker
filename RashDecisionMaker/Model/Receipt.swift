@@ -7,6 +7,7 @@ enum ReceiptType: String {
 }
 
 protocol Receipt: class {
+    var identity: Int { get set }
     var type: ReceiptType { get }
     var displayText: NSAttributedString { get }
     var displayDesc: String { get }

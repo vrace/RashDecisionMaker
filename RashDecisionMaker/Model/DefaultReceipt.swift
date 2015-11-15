@@ -4,6 +4,7 @@ import UIKit
 class DefaultReceipt: Receipt {
     private(set) var title: String
     private var choices: [Choice]
+    var identity: Int = 0
     
     init(title: String) {
         self.title = title

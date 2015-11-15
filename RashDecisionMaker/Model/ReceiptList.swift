@@ -2,6 +2,7 @@ import Foundation
 
 private let ReceiptListTxt = "ReceiptList.txt"
 private let TagCount = "count"
+private var NextIdentity = 1
 
 class ReceiptList {
     private var receipts = [Receipt]()
@@ -20,7 +21,7 @@ class ReceiptList {
             if let count = dict[TagCount]?.toInt() {
                 for var i = 0; i < count; i++ {
                     if let r = receiptFromFile("\(i + 1).txt") {
-                        receipts.append(r)
+                        append(r)
                     }
                 }
             }
@@ -43,10 +44,11 @@ class ReceiptList {
     }
     
     func append(receipt: Receipt) {
+        receipt.identity = NextIdentity++
         receipts.append(receipt)
     }
     
-    func remove(atIndex: Int) {
-        receipts.removeAtIndex(atIndex)
+    func remove(receipt: Receipt) {
+        receipts = receipts.filter({ $0.identity != receipt.identity })
     }
 }
