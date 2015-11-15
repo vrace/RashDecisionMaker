@@ -107,6 +107,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="cHk-Y7-7s7"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="YxB-NA-KCx" id="oSa-Xk-ocf"/>
+                                    <outlet property="delegate" destination="YxB-NA-KCx" id="2xN-7U-3mz"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,6 +144,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="receiptName" destination="vwb-mf-xsM" id="Wc5-sK-NQf"/>
+                        <outlet property="receiptType" destination="17O-iW-fXd" id="Ri5-PR-kDF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2j-Th-RHh" userLabel="First Responder" sceneMemberID="firstResponder"/>

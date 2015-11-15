@@ -5,8 +5,14 @@ protocol NewReceiptDelegate: class {
     func beginCreateReceipt(receiptType: ReceiptType, receiptName: String)
 }
 
-class NewReceiptViewController: UIViewController, UITextFieldDelegate {
+private let ReceiptTypeOptions = [
+    (display: "标准", type: ReceiptType.Default),
+    (display: "摇后即焚", type: ReceiptType.Once)
+]
+
+class NewReceiptViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var receiptName: UITextField!
+    @IBOutlet weak var receiptType: UIPickerView!
     weak var delegate: NewReceiptDelegate?
     
     override func viewDidLoad() {
@@ -18,7 +24,8 @@ class NewReceiptViewController: UIViewController, UITextFieldDelegate {
         if !receiptName.text.isEmpty {
             navigationController?.dismissViewControllerAnimated(true,
                 completion: {
-                    delegate?.beginCreateReceipt(.Default, receiptName: receiptName.text)
+                    let type = ReceiptTypeOptions[self.receiptType.selectedRowInComponent(0)].type
+                    self.delegate?.beginCreateReceipt(type, receiptName: self.receiptName.text)
             })
         }
     }
@@ -31,5 +38,17 @@ class NewReceiptViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return count(ReceiptTypeOptions)
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return ReceiptTypeOptions[row].display
     }
 }
