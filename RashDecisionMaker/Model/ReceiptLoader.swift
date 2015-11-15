@@ -12,7 +12,7 @@ func receiptFromFile(file: String) -> Receipt? {
                 case .Default:
                     return DefaultReceipt(dict: dict, components: comps)
                 case .Once:
-                    return DefaultReceipt(dict: dict, components: comps)
+                    return OnceReceipt(dict: dict, components: comps)
                 }
             }
         }

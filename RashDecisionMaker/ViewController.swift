@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         case .Default:
             receipt = DefaultReceipt(title: receiptName)
         case .Once:
-            receipt = DefaultReceipt(title: receiptName)
+            receipt = OnceReceipt(title: receiptName)
         }
         
         receiptList.append(receipt)
@@ -61,18 +61,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         receiptList.save()
         optionsList.reloadData()
     }
-    
-    /*
-    private func makeReceiptTitleText(receipt: Receipt) -> NSAttributedString {
-        var str = NSMutableAttributedString()
-        if receipt.once {
-            str = NSMutableAttributedString(string: "[摇后即焚] ",
-                attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
-        }
-        str.appendAttributedString(NSAttributedString(string: receipt.title))
-        return str
-    }
-    */
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return receiptList.numberOfReceipts

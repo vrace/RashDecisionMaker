@@ -79,28 +79,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先来给个名字……" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-Uw-Udp">
-                                <rect key="frame" x="16" y="80" width="136.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-Uw-Udp">
+                                <rect key="frame" x="16" y="72" width="34" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwb-mf-xsM">
-                                <rect key="frame" x="16" y="108" width="568" height="30"/>
+                                <rect key="frame" x="16" y="100" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WzR-Z0-jUn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="YxB-NA-KCx" id="JDI-6c-FMl"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="类型" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIx-am-h2R">
+                                <rect key="frame" x="16" y="138" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17O-iW-fXd">
+                                <rect key="frame" x="16" y="167" width="568" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="cHk-Y7-7s7"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EOb-Uw-Udp" firstAttribute="top" secondItem="onp-56-7gc" secondAttribute="bottom" constant="16" id="8mT-4b-594"/>
-                            <constraint firstItem="EOb-Uw-Udp" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="G0K-Ar-htJ"/>
-                            <constraint firstItem="vwb-mf-xsM" firstAttribute="trailing" secondItem="F9g-mV-2ej" secondAttribute="trailingMargin" id="Vg4-sO-68t"/>
-                            <constraint firstItem="vwb-mf-xsM" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="Wgd-7e-skX"/>
-                            <constraint firstItem="vwb-mf-xsM" firstAttribute="top" secondItem="EOb-Uw-Udp" secondAttribute="bottom" constant="8" id="ZVu-oD-AOi"/>
+                            <constraint firstItem="vwb-mf-xsM" firstAttribute="top" secondItem="EOb-Uw-Udp" secondAttribute="bottom" constant="8" id="4nh-OV-5Xb"/>
+                            <constraint firstItem="17O-iW-fXd" firstAttribute="top" secondItem="eIx-am-h2R" secondAttribute="bottom" constant="8" id="81f-gM-RYb"/>
+                            <constraint firstItem="eIx-am-h2R" firstAttribute="top" secondItem="vwb-mf-xsM" secondAttribute="bottom" constant="8" id="CDR-9x-183"/>
+                            <constraint firstItem="EOb-Uw-Udp" firstAttribute="top" secondItem="onp-56-7gc" secondAttribute="bottom" constant="8" id="L1y-6t-63Z"/>
+                            <constraint firstItem="17O-iW-fXd" firstAttribute="trailing" secondItem="F9g-mV-2ej" secondAttribute="trailingMargin" id="NHu-HH-d3G"/>
+                            <constraint firstItem="17O-iW-fXd" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="YaJ-Ga-cGA"/>
+                            <constraint firstItem="vwb-mf-xsM" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="aLz-69-aGK"/>
+                            <constraint firstItem="eIx-am-h2R" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="hQc-Xf-9Aa"/>
+                            <constraint firstItem="vwb-mf-xsM" firstAttribute="trailing" secondItem="F9g-mV-2ej" secondAttribute="trailingMargin" id="myT-Vn-ZHb"/>
+                            <constraint firstItem="EOb-Uw-Udp" firstAttribute="leading" secondItem="F9g-mV-2ej" secondAttribute="leadingMargin" id="tRu-1j-fZC"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

@@ -23,6 +23,7 @@
 		11701DEE1BF891F300CA8968 /* ReceiptLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11701DED1BF891F300CA8968 /* ReceiptLoader.swift */; };
 		11701DF01BF897CD00CA8968 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11701DEF1BF897CD00CA8968 /* Receipt.swift */; };
 		11701DF21BF8988B00CA8968 /* DefaultReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11701DF11BF8988B00CA8968 /* DefaultReceipt.swift */; };
+		11701DF41BF8A01700CA8968 /* OnceReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11701DF31BF8A01700CA8968 /* OnceReceipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		11701DED1BF891F300CA8968 /* ReceiptLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptLoader.swift; sourceTree = "<group>"; };
 		11701DEF1BF897CD00CA8968 /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		11701DF11BF8988B00CA8968 /* DefaultReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultReceipt.swift; sourceTree = "<group>"; };
+		11701DF31BF8A01700CA8968 /* OnceReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnceReceipt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				11701DED1BF891F300CA8968 /* ReceiptLoader.swift */,
 				11701DEF1BF897CD00CA8968 /* Receipt.swift */,
 				11701DF11BF8988B00CA8968 /* DefaultReceipt.swift */,
+				11701DF31BF8A01700CA8968 /* OnceReceipt.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				116077321BF0FE8900028D2E /* ReceiptViewController.swift in Sources */,
 				11701DEC1BF5FD2800CA8968 /* NewChoiceViewController.swift in Sources */,
 				1160770D1BF09D9900028D2E /* ViewController.swift in Sources */,
+				11701DF41BF8A01700CA8968 /* OnceReceipt.swift in Sources */,
 				116077391BF1CF9E00028D2E /* Serialiser.swift in Sources */,
 				1160770B1BF09D9900028D2E /* AppDelegate.swift in Sources */,
 				11701DEE1BF891F300CA8968 /* ReceiptLoader.swift in Sources */,
