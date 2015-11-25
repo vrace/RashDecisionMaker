@@ -30,12 +30,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
                 vc.receipt = receipt as! DefaultReceipt
                 vc.delegate = self
+                vc.eventDelegate = DefaultReceiptEvent()
                 navigationController?.pushViewController(vc, animated: true)
             }
         case .Once:
             if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
                 vc.receipt = receipt as! DefaultReceipt
                 vc.delegate = self
+                vc.eventDelegate = OnceReceiptEvent()
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        case .Pair:
+            if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
+                vc.receipt = receipt as! DefaultReceipt
+                vc.delegate = self
+                vc.eventDelegate = DefaultReceiptEvent()
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
@@ -49,6 +58,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             receipt = DefaultReceipt(title: receiptName)
         case .Once:
             receipt = OnceReceipt(title: receiptName)
+        case .Pair:
+            receipt = PairReceipt(title: receiptName)
         }
         
         receiptList.append(receipt)

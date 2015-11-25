@@ -3,7 +3,7 @@ import UIKit
 
 class DefaultReceipt: Receipt {
     private(set) var title: String
-    private var choices: [Choice]
+    private(set) var choices: [Choice]
     var identity: Int = 0
     
     init(title: String) {

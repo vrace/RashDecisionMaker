@@ -4,6 +4,7 @@ import UIKit
 enum ReceiptType: String {
     case Default = ""
     case Once = "once"
+    case Pair = "pair"
 }
 
 protocol Receipt: class {

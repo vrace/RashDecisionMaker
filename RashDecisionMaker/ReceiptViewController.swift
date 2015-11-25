@@ -7,9 +7,14 @@ protocol ReceiptViewDelegate: class {
     func receiptChanged(Receipt)
 }
 
-class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewChoiceDelegate, UIAlertViewDelegate {
+protocol ReceiptEventDelegate: class {
+    func receiptMakeDecision(vc: ReceiptViewController, receipt: Receipt)
+}
+
+class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewChoiceDelegate {
     var receipt: DefaultReceipt!
-    weak var delegate: ReceiptViewDelegate?
+    var delegate: ReceiptViewDelegate?
+    var eventDelegate: ReceiptEventDelegate?
     @IBOutlet weak var choiceList: UITableView!
     
     override func viewDidLoad() {
@@ -74,12 +79,7 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if motion == UIEventSubtype.MotionShake {
-            if let choice = receipt.random() {
-                UIAlertView(title: choice.title, message: nil, delegate: self, cancelButtonTitle: "OK").show()
-            }
-            else {
-                UIAlertView(title: "臣妾做不到啊！没得选！", message: nil, delegate: self, cancelButtonTitle: "OK").show()
-            }
+            eventDelegate?.receiptMakeDecision(self, receipt: receipt)
         }
     }
     

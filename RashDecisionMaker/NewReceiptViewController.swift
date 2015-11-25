@@ -7,7 +7,8 @@ protocol NewReceiptDelegate: class {
 
 private let ReceiptTypeOptions = [
     (display: "标准", type: ReceiptType.Default),
-    (display: "摇后即焚", type: ReceiptType.Once)
+    (display: "摇后即焚", type: ReceiptType.Once),
+    (display: "Pair", type: ReceiptType.Pair)
 ]
 
 class NewReceiptViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
