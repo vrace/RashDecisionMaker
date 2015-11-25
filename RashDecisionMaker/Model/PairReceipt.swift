@@ -1,19 +1,19 @@
 import Foundation
 import UIKit
 
-class PairReceipt: DefaultReceipt {
+class PairReceipt: ListReceipt {
     override var type: ReceiptType {
-        return .Once
+        return .Pair
     }
     
     override var displayText: NSAttributedString {
         var str = NSMutableAttributedString(string: "[Pair] ",
-            attributes: [NSForegroundColorAttributeName: UIColor.greenColor()])
+            attributes: [NSForegroundColorAttributeName: UIColor.orangeColor()])
         str.appendAttributedString(super.displayText)
         return str
     }
     
-    func arrangePair() -> [Choice] {
+    override func randomList() -> [Choice] {
         var items = choices.map { $0 }
         for var i = 0; i < items.count; i++ {
             let t = Int(arc4random() % UInt32(items.count))

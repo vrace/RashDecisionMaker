@@ -18,7 +18,6 @@ class DefaultReceiptEvent: NSObject, ReceiptEventDelegate, UIAlertViewDelegate {
     }
     
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
-        vc?.delegate = nil
         vc?.navigationController?.popViewControllerAnimated(true)
     }
 }

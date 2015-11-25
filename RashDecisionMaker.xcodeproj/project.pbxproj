@@ -10,6 +10,9 @@
 		11218C661C05610100091638 /* PairReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11218C651C05610100091638 /* PairReceipt.swift */; };
 		11218C681C05789200091638 /* DefaultReceiptEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11218C671C05789200091638 /* DefaultReceiptEvent.swift */; };
 		11218C6A1C057AA000091638 /* OnceReceiptEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11218C691C057AA000091638 /* OnceReceiptEvent.swift */; };
+		11218C6C1C057D5D00091638 /* ListResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11218C6B1C057D5D00091638 /* ListResultViewController.swift */; };
+		11218C6E1C057E6300091638 /* ListReceiptEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11218C6D1C057E6300091638 /* ListReceiptEvent.swift */; };
+		11218C701C057EFE00091638 /* ListReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11218C6F1C057EFE00091638 /* ListReceipt.swift */; };
 		1160770B1BF09D9900028D2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160770A1BF09D9900028D2E /* AppDelegate.swift */; };
 		1160770D1BF09D9900028D2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160770C1BF09D9900028D2E /* ViewController.swift */; };
 		116077101BF09D9900028D2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1160770E1BF09D9900028D2E /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 		11218C651C05610100091638 /* PairReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairReceipt.swift; sourceTree = "<group>"; };
 		11218C671C05789200091638 /* DefaultReceiptEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultReceiptEvent.swift; sourceTree = "<group>"; };
 		11218C691C057AA000091638 /* OnceReceiptEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnceReceiptEvent.swift; sourceTree = "<group>"; };
+		11218C6B1C057D5D00091638 /* ListResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListResultViewController.swift; sourceTree = "<group>"; };
+		11218C6D1C057E6300091638 /* ListReceiptEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListReceiptEvent.swift; sourceTree = "<group>"; };
+		11218C6F1C057EFE00091638 /* ListReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListReceipt.swift; sourceTree = "<group>"; };
 		116077051BF09D9900028D2E /* RashDecisionMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RashDecisionMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116077091BF09D9900028D2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1160770A1BF09D9900028D2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,8 +118,10 @@
 				116077311BF0FE8900028D2E /* ReceiptViewController.swift */,
 				1160773C1BF1E9E900028D2E /* NewReceiptViewController.swift */,
 				11701DEB1BF5FD2800CA8968 /* NewChoiceViewController.swift */,
+				11218C6B1C057D5D00091638 /* ListResultViewController.swift */,
 				11218C671C05789200091638 /* DefaultReceiptEvent.swift */,
 				11218C691C057AA000091638 /* OnceReceiptEvent.swift */,
+				11218C6D1C057E6300091638 /* ListReceiptEvent.swift */,
 				1160770E1BF09D9900028D2E /* Main.storyboard */,
 				116077111BF09D9900028D2E /* Images.xcassets */,
 				116077131BF09D9900028D2E /* LaunchScreen.xib */,
@@ -157,6 +165,7 @@
 				11701DF11BF8988B00CA8968 /* DefaultReceipt.swift */,
 				11701DF31BF8A01700CA8968 /* OnceReceipt.swift */,
 				11218C651C05610100091638 /* PairReceipt.swift */,
+				11218C6F1C057EFE00091638 /* ListReceipt.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,17 +280,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				11701DF01BF897CD00CA8968 /* Receipt.swift in Sources */,
+				11218C6E1C057E6300091638 /* ListReceiptEvent.swift in Sources */,
 				1160773B1BF1D35200028D2E /* Document.swift in Sources */,
 				116077341BF1818A00028D2E /* Choice.swift in Sources */,
 				11218C681C05789200091638 /* DefaultReceiptEvent.swift in Sources */,
 				11218C6A1C057AA000091638 /* OnceReceiptEvent.swift in Sources */,
 				116077301BF0CAEE00028D2E /* ReceiptList.swift in Sources */,
+				11218C6C1C057D5D00091638 /* ListResultViewController.swift in Sources */,
 				11701DF21BF8988B00CA8968 /* DefaultReceipt.swift in Sources */,
 				116077321BF0FE8900028D2E /* ReceiptViewController.swift in Sources */,
 				11218C661C05610100091638 /* PairReceipt.swift in Sources */,
 				11701DEC1BF5FD2800CA8968 /* NewChoiceViewController.swift in Sources */,
 				1160770D1BF09D9900028D2E /* ViewController.swift in Sources */,
 				11701DF41BF8A01700CA8968 /* OnceReceipt.swift in Sources */,
+				11218C701C057EFE00091638 /* ListReceipt.swift in Sources */,
 				116077391BF1CF9E00028D2E /* Serialiser.swift in Sources */,
 				1160770B1BF09D9900028D2E /* AppDelegate.swift in Sources */,
 				11701DEE1BF891F300CA8968 /* ReceiptLoader.swift in Sources */,

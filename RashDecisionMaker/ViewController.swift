@@ -44,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let vc = storyboard?.instantiateViewControllerWithIdentifier("ReceiptForm") as? ReceiptViewController {
                 vc.receipt = receipt as! DefaultReceipt
                 vc.delegate = self
-                vc.eventDelegate = DefaultReceiptEvent()
+                vc.eventDelegate = ListReceiptEvent()
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

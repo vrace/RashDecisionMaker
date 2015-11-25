@@ -13,7 +13,7 @@ protocol ReceiptEventDelegate: class {
 
 class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewChoiceDelegate {
     var receipt: DefaultReceipt!
-    var delegate: ReceiptViewDelegate?
+    weak var delegate: ReceiptViewDelegate?
     var eventDelegate: ReceiptEventDelegate?
     @IBOutlet weak var choiceList: UITableView!
     

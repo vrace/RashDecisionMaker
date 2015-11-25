@@ -242,6 +242,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" prompt="晃动设备来让我帮你做决定！" id="oTh-QL-FwN">
+                        <barButtonItem key="backBarButtonItem" title=" " id="K6O-XI-vi7"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LuO-fN-h8P">
                             <connections>
                                 <action selector="addButtonTapped" destination="9yS-Of-zfv" id="XJq-9o-z6H"/>
@@ -257,6 +258,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cjm-7Y-wG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="542" y="-318"/>
+        </scene>
+        <!--结果-->
+        <scene sceneID="lJL-9H-3cs">
+            <objects>
+                <viewController storyboardIdentifier="ListResultView" id="hFW-Zj-tnp" customClass="ListResultViewController" customModule="RashDecisionMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A4p-D1-gQb"/>
+                        <viewControllerLayoutGuide type="bottom" id="kG3-xE-gnq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sc5-3M-oWu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PyV-G6-olv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hFW-Zj-tnp" id="Jxm-on-Axr"/>
+                                    <outlet property="delegate" destination="hFW-Zj-tnp" id="DX3-jw-iSi"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PyV-G6-olv" firstAttribute="leading" secondItem="Sc5-3M-oWu" secondAttribute="leading" id="2ZC-JZ-pbQ"/>
+                            <constraint firstItem="PyV-G6-olv" firstAttribute="top" secondItem="Sc5-3M-oWu" secondAttribute="top" id="9H0-It-fjv"/>
+                            <constraint firstItem="kG3-xE-gnq" firstAttribute="top" secondItem="PyV-G6-olv" secondAttribute="bottom" id="d3e-To-QzE"/>
+                            <constraint firstAttribute="trailing" secondItem="PyV-G6-olv" secondAttribute="trailing" id="gu5-7c-Jlx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="结果" id="lYp-th-sIo">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="noc-sW-yae">
+                            <connections>
+                                <segue destination="vJy-p7-u6b" kind="unwind" unwindAction="unwindToMain:" id="zFe-fc-NK7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uPZ-ir-Vz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vJy-p7-u6b" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1224" y="-318"/>
         </scene>
     </scenes>
 </document>
